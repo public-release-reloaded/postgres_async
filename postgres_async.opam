@@ -12,14 +12,14 @@ build: [
 ]
 depends: [
   "ocaml" {>= "5.5.0"}
-  "async"
-  "async_kernel"
-  "async_ssl"
-  "async_unix"
-  "core"
-  "core_kernel"
-  "ppx_jane"
-  "dune"         {>= "3.17.0"}
+  "async" {>= "v0.18~" & < "v0.19~"}
+  "async_kernel" {>= "v0.18~" & < "v0.19~"}
+  "async_ssl" {>= "v0.18~" & < "v0.19~"}
+  "async_unix" {>= "v0.18~" & < "v0.19~"}
+  "core" {>= "v0.18~" & < "v0.19~"}
+  "core_kernel" {>= "v0.18~" & < "v0.19~"}
+  "ppx_jane" {>= "v0.18~" & < "v0.19~"}
+  "dune" {>= "3.17.0"}
 ]
 available: arch != "x86_32"
 synopsis: "OCaml/async implementation of the postgres protocol (i.e., does not use C-bindings to libpq)"
