@@ -20,13 +20,15 @@ module Attribute = struct
 end
 
 let pbkdf2_sha256 ~password ~salt ~iterations =
+  (* The [kdf]/[pbkdf] library switched from [Cstruct.t] to [string] for
+     [~password]/[~salt] and its result, so no [Cstruct] conversions are
+     needed anymore. *)
   Pbkdf.pbkdf2
     ~prf:`SHA256
-    ~password:(Cstruct.of_string password)
-    ~salt:(Cstruct.of_string salt)
+    ~password
+    ~salt
     ~count:iterations
     ~dk_len:(Int32.of_int_exn key_length)
-  |> Cstruct.to_string
 ;;
 
 let xor_strings_exn a b =
